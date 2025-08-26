@@ -1,0 +1,280 @@
+{
+  "name": "WebsiteProject",
+  "type": "object",
+  "properties": {
+    "business_name": {
+      "type": "string",
+      "description": "Name of the business"
+    },
+    "business_type": {
+      "type": "string",
+      "enum": [
+        "roofing",
+        "plumbing",
+        "electrical",
+        "pest_control",
+        "water_damage",
+        "porta_potty",
+        "landscaping",
+        "hvac",
+        "cleaning",
+        "auto_repair",
+        "restaurant",
+        "fitness",
+        "consulting",
+        "healthcare",
+        "education",
+        "retail",
+        "real_estate",
+        "technology",
+        "other"
+      ],
+      "description": "Type of business/service"
+    },
+    "description": {
+      "type": "string",
+      "description": "Business description and services offered"
+    },
+    "location": {
+      "type": "string",
+      "description": "Business location/service area"
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Business phone number"
+    },
+    "contact_email": {
+      "type": "string",
+      "description": "Business email address"
+    },
+    "website_url": {
+      "type": "string",
+      "description": "Existing website URL (optional)"
+    },
+    "target_audience": {
+      "type": "string",
+      "description": "Target customer description"
+    },
+    "business_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of business goals for the website"
+    },
+    "template_type": {
+      "type": "string",
+      "enum": [
+        "modern-business",
+        "creative-portfolio",
+        "restaurant-cafe",
+        "tech-startup",
+        "fitness-wellness",
+        "professional-services"
+      ],
+      "default": "modern-business",
+      "description": "Selected template type"
+    },
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "single_page",
+        "multi_page"
+      ],
+      "default": "multi_page",
+      "description": "Website structure type"
+    },
+    "ai_model": {
+      "type": "string",
+      "description": "AI model used for generation"
+    },
+    "template_customization": {
+      "type": "object",
+      "description": "Template customization settings",
+      "properties": {
+        "colors": {
+          "type": "object",
+          "properties": {
+            "primary": {
+              "type": "string"
+            },
+            "secondary": {
+              "type": "string"
+            }
+          }
+        },
+        "fonts": {
+          "type": "object",
+          "properties": {
+            "heading": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            }
+          }
+        },
+        "style": {
+          "type": "string"
+        }
+      }
+    },
+    "pages": {
+      "type": "array",
+      "description": "List of website pages",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "html": {
+            "type": "string"
+          },
+          "css": {
+            "type": "string"
+          },
+          "js": {
+            "type": "string"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "keywords": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "generated_html": {
+      "type": "string",
+      "description": "Generated HTML content for the main page"
+    },
+    "generated_css": {
+      "type": "string",
+      "description": "Generated CSS styles"
+    },
+    "generated_js": {
+      "type": "string",
+      "description": "Generated JavaScript code"
+    },
+    "generation_prompt": {
+      "type": "string",
+      "description": "AI prompt used for generation"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "generating",
+        "generated",
+        "editing",
+        "published"
+      ],
+      "default": "draft",
+      "description": "Project status"
+    },
+    "preview_url": {
+      "type": "string",
+      "description": "Preview URL for the generated website"
+    },
+    "theme": {
+      "type": "object",
+      "description": "Custom theme properties for the website",
+      "properties": {
+        "primary_color": {
+          "type": "string"
+        },
+        "secondary_color": {
+          "type": "string"
+        },
+        "accent_color": {
+          "type": "string"
+        },
+        "font_family": {
+          "type": "string"
+        }
+      }
+    },
+    "images": {
+      "type": "array",
+      "description": "List of AI-generated images for the project",
+      "items": {
+        "type": "object",
+        "properties": {
+          "prompt": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "page": {
+            "type": "string"
+          },
+          "alt": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "file_structure": {
+      "type": "object",
+      "description": "Website file structure for export",
+      "properties": {
+        "assets": {
+          "type": "object",
+          "properties": {
+            "css": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "js": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "images": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "manifest": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "required": [
+    "business_name",
+    "business_type",
+    "description"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}

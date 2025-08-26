@@ -1,0 +1,111 @@
+{
+  "name": "DashboardWidget",
+  "type": "object",
+  "properties": {
+    "widget_type": {
+      "type": "string",
+      "enum": [
+        "analytics_overview",
+        "website_performance",
+        "seo_health",
+        "user_engagement",
+        "conversion_funnel",
+        "content_calendar",
+        "security_status",
+        "ai_recommendations",
+        "recent_activity",
+        "quick_actions",
+        "website_stats",
+        "traffic_sources",
+        "page_performance",
+        "user_behavior",
+        "revenue_tracking",
+        "lead_generation",
+        "social_media",
+        "email_campaigns",
+        "backup_status",
+        "security_alerts"
+      ],
+      "description": "Type of dashboard widget"
+    },
+    "title": {
+      "type": "string",
+      "description": "Display title for the widget"
+    },
+    "x": {
+      "type": "number",
+      "default": 0,
+      "description": "X position in grid"
+    },
+    "y": {
+      "type": "number",
+      "default": 0,
+      "description": "Y position in grid"
+    },
+    "w": {
+      "type": "number",
+      "default": 6,
+      "description": "Width in grid units"
+    },
+    "h": {
+      "type": "number",
+      "default": 4,
+      "description": "Height in grid units"
+    },
+    "config": {
+      "type": "object",
+      "description": "Widget-specific configuration options"
+    },
+    "data_source": {
+      "type": "string",
+      "description": "Data source for the widget content"
+    },
+    "refresh_interval": {
+      "type": "number",
+      "default": 300,
+      "description": "Auto-refresh interval in seconds"
+    },
+    "is_visible": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether widget is currently visible"
+    },
+    "is_resizable": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether widget can be resized"
+    },
+    "min_w": {
+      "type": "number",
+      "default": 3,
+      "description": "Minimum width"
+    },
+    "min_h": {
+      "type": "number",
+      "default": 2,
+      "description": "Minimum height"
+    },
+    "max_w": {
+      "type": "number",
+      "default": 12,
+      "description": "Maximum width"
+    },
+    "max_h": {
+      "type": "number",
+      "default": 8,
+      "description": "Maximum height"
+    }
+  },
+  "required": [
+    "widget_type",
+    "title"
+  ],
+  "rls": {
+    "read": {
+      "created_by": "{{user.email}}"
+    },
+    "write": {
+      "created_by": "{{user.email}}"
+    }
+  }
+}
